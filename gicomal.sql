@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 03, 2025 at 12:19 PM
--- Server version: 8.0.30
+-- Generation Time: Feb 06, 2025 at 09:25 AM
+-- Server version: 8.0.40
 -- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -24,10 +24,55 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `boolean`
+-- Table structure for table `boolean_cpl`
 --
 
-CREATE TABLE `boolean` (
+CREATE TABLE `boolean_cpl` (
+  `id` int NOT NULL,
+  `tanggal` text NOT NULL,
+  `bay` char(15) NOT NULL,
+  `sf6blok` char(10) NOT NULL,
+  `sf6alarm` char(10) NOT NULL,
+  `springuncharge` char(10) NOT NULL,
+  `mtrmcbtrip` char(10) NOT NULL,
+  `q1mtrtrip` char(10) NOT NULL,
+  `q1ctrltrip` char(10) NOT NULL,
+  `q2mtrtrip` char(10) NOT NULL,
+  `q2ctrltrip` char(10) NOT NULL,
+  `mcbactrip` char(10) NOT NULL,
+  `f51fail` char(10) NOT NULL,
+  `f51alarm` char(10) NOT NULL,
+  `tcs1` char(10) NOT NULL,
+  `tcs2` char(10) NOT NULL,
+  `protsuppfail` char(10) NOT NULL,
+  `ctrl1suppfail` char(10) NOT NULL,
+  `ctrl2suppfail` char(10) NOT NULL,
+  `k861` char(10) NOT NULL,
+  `k862` char(10) NOT NULL,
+  `k863` char(10) NOT NULL,
+  `statQ21` char(10) NOT NULL,
+  `statQ22` char(10) NOT NULL,
+  `statQ50` char(10) NOT NULL,
+  `ocrop` char(10) NOT NULL,
+  `gfrop` char(10) NOT NULL,
+  `bcufail` char(10) NOT NULL,
+  `etherfail` char(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `boolean_cpl`
+--
+
+INSERT INTO `boolean_cpl` (`id`, `tanggal`, `bay`, `sf6blok`, `sf6alarm`, `springuncharge`, `mtrmcbtrip`, `q1mtrtrip`, `q1ctrltrip`, `q2mtrtrip`, `q2ctrltrip`, `mcbactrip`, `f51fail`, `f51alarm`, `tcs1`, `tcs2`, `protsuppfail`, `ctrl1suppfail`, `ctrl2suppfail`, `k861`, `k862`, `k863`, `statQ21`, `statQ22`, `statQ50`, `ocrop`, `gfrop`, `bcufail`, `etherfail`) VALUES
+(1, '03-02-2025 19:05:48', 'kopel', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', '1', '1', '2', 'false', 'false', 'false', 'true');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `boolean_line`
+--
+
+CREATE TABLE `boolean_line` (
   `id` int NOT NULL,
   `tanggal` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `bay` char(15) NOT NULL,
@@ -121,59 +166,14 @@ CREATE TABLE `boolean` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `boolean`
+-- Dumping data for table `boolean_line`
 --
 
-INSERT INTO `boolean` (`id`, `tanggal`, `bay`, `f87lfail`, `f87lalarm`, `f50fail`, `f50alarm`, `mcbac`, `auxdcsupply`, `q21q22close`, `cbsringchargefail`, `cbmotormcbtrip`, `springfailR`, `springfailS`, `springfailT`, `sf6block`, `tcs2block`, `sf6alarm`, `cbalarmac`, `poledis`, `q21motor`, `q21control`, `q22motor`, `q22control`, `q28motor`, `q28control`, `tcs1r`, `tcs1s`, `tcs1t`, `tcs2r`, `tcs2s`, `tcs2t`, `motormcb`, `vtmcb`, `protsupply`, `ctrlsupply`, `k861op`, `k862op`, `k863op`, `statQ21`, `statQ22`, `statQ50`, `statQ28`, `statQ38`, `ocrop`, `gfrop1`, `gfrop2`, `gfrop3`, `gfrop4`, `r1`, `r2`, `r3`, `r4`, `r5`, `r6`, `s1`, `s2`, `s3`, `s4`, `s5`, `s6`, `t1`, `t2`, `t3`, `t4`, `t5`, `t6`, `arlockout`, `cbunhealthy`, `aidedsend`, `defsend`, `aidedreceive`, `defreceive`, `diffop`, `z1op`, `z2op`, `z3op`, `sotfop`, `autoreclose`, `aidedop`, `defop`, `psb`, `fof87lalarm`, `r_diff`, `s_diff`, `t_diff`, `olsop`, `bcufail`, `etherfail`, `buscouplerclose`) VALUES
-(1, '03-02-2025 15:23:47', 'pemalang1', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', '1', '2', '1', '1', '2', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'true', 'true'),
-(2, '03-02-2025 19:15:43', 'pemalang2', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', '2', '1', '1', '1', '2', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'true', 'true'),
-(3, '03-02-2025 16:00:08', 'pekalongan1', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', '1', '2', '1', '1', '2', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'true', 'true'),
-(4, '03-02-2025 15:54:39', 'pekalongan2', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', '2', '1', '1', '1', '2', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'true', 'true');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `boolean_cpl`
---
-
-CREATE TABLE `boolean_cpl` (
-  `id` int NOT NULL,
-  `tanggal` text NOT NULL,
-  `bay` char(15) NOT NULL,
-  `sf6blok` char(10) NOT NULL,
-  `sf6alarm` char(10) NOT NULL,
-  `springuncharge` char(10) NOT NULL,
-  `mtrmcbtrip` char(10) NOT NULL,
-  `q1mtrtrip` char(10) NOT NULL,
-  `q1ctrltrip` char(10) NOT NULL,
-  `q2mtrtrip` char(10) NOT NULL,
-  `q2ctrltrip` char(10) NOT NULL,
-  `mcbactrip` char(10) NOT NULL,
-  `f51fail` char(10) NOT NULL,
-  `f51alarm` char(10) NOT NULL,
-  `tcs1` char(10) NOT NULL,
-  `tcs2` char(10) NOT NULL,
-  `protsuppfail` char(10) NOT NULL,
-  `ctrl1suppfail` char(10) NOT NULL,
-  `ctrl2suppfail` char(10) NOT NULL,
-  `k861` char(10) NOT NULL,
-  `k862` char(10) NOT NULL,
-  `k863` char(10) NOT NULL,
-  `statQ21` char(10) NOT NULL,
-  `statQ22` char(10) NOT NULL,
-  `statQ50` char(10) NOT NULL,
-  `ocrop` char(10) NOT NULL,
-  `gfrop` char(10) NOT NULL,
-  `bcufail` char(10) NOT NULL,
-  `etherfail` char(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `boolean_cpl`
---
-
-INSERT INTO `boolean_cpl` (`id`, `tanggal`, `bay`, `sf6blok`, `sf6alarm`, `springuncharge`, `mtrmcbtrip`, `q1mtrtrip`, `q1ctrltrip`, `q2mtrtrip`, `q2ctrltrip`, `mcbactrip`, `f51fail`, `f51alarm`, `tcs1`, `tcs2`, `protsuppfail`, `ctrl1suppfail`, `ctrl2suppfail`, `k861`, `k862`, `k863`, `statQ21`, `statQ22`, `statQ50`, `ocrop`, `gfrop`, `bcufail`, `etherfail`) VALUES
-(1, '03-02-2025 19:05:48', 'kopel', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', '1', '1', '1', 'false', 'false', 'false', 'true');
+INSERT INTO `boolean_line` (`id`, `tanggal`, `bay`, `f87lfail`, `f87lalarm`, `f50fail`, `f50alarm`, `mcbac`, `auxdcsupply`, `q21q22close`, `cbsringchargefail`, `cbmotormcbtrip`, `springfailR`, `springfailS`, `springfailT`, `sf6block`, `tcs2block`, `sf6alarm`, `cbalarmac`, `poledis`, `q21motor`, `q21control`, `q22motor`, `q22control`, `q28motor`, `q28control`, `tcs1r`, `tcs1s`, `tcs1t`, `tcs2r`, `tcs2s`, `tcs2t`, `motormcb`, `vtmcb`, `protsupply`, `ctrlsupply`, `k861op`, `k862op`, `k863op`, `statQ21`, `statQ22`, `statQ50`, `statQ28`, `statQ38`, `ocrop`, `gfrop1`, `gfrop2`, `gfrop3`, `gfrop4`, `r1`, `r2`, `r3`, `r4`, `r5`, `r6`, `s1`, `s2`, `s3`, `s4`, `s5`, `s6`, `t1`, `t2`, `t3`, `t4`, `t5`, `t6`, `arlockout`, `cbunhealthy`, `aidedsend`, `defsend`, `aidedreceive`, `defreceive`, `diffop`, `z1op`, `z2op`, `z3op`, `sotfop`, `autoreclose`, `aidedop`, `defop`, `psb`, `fof87lalarm`, `r_diff`, `s_diff`, `t_diff`, `olsop`, `bcufail`, `etherfail`, `buscouplerclose`) VALUES
+(1, '03-02-2025 15:23:47', 'pemalang1', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', '2', '2', '2', '2', '2', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'true', 'true'),
+(2, '03-02-2025 19:15:43', 'pemalang2', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', '2', '2', '2', '2', '2', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'true', 'true'),
+(3, '03-02-2025 16:00:08', 'pekalongan1', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', '2', '2', '2', '2', '2', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'true', 'true'),
+(4, '03-02-2025 15:54:39', 'pekalongan2', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', '2', '2', '2', '2', '2', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'true', 'true');
 
 -- --------------------------------------------------------
 
@@ -286,7 +286,7 @@ CREATE TABLE `boolean_trf` (
 --
 
 INSERT INTO `boolean_trf` (`id`, `tanggal`, `bay`, `d40etherfail`, `f87tfail`, `f501fail`, `f502fail`, `sf6block`, `sf6alarm`, `springuncharge`, `cbmtrmcb`, `q21mtrmcb`, `q21ctrlmcb`, `q2mtrmcb`, `q2ctrlmcb`, `mcbac`, `mainoilalm`, `oltcoilalm`, `bucholzalm`, `oilalm`, `mainbreahtalm`, `oltcbreathalm`, `lvwindalm`, `hvwindalm`, `fanfail`, `oltcmotoralm`, `tcs1`, `tcs2`, `k861op`, `k862op`, `k863op`, `mcbheater`, `bucholztrip`, `oiltrip`, `hvwindtrip`, `protpowerfail`, `ctrlporwerfail`, `macauxddcfail`, `lvwindtrip`, `presstrip`, `oltcpresstrip`, `jansentrip`, `mainoillow`, `oltcoillow`, `mtrmcbtrip`, `Q0`, `Q21`, `Q22`, `Q51`, `Q38`, `ocrlvop`, `ocrlvhs1`, `ocrlvhs2`, `gfrop`, `gfrhs1`, `gfrhs2`, `d39R`, `d39S`, `d39T`, `inctest`, `incservice`, `mtrsupply`, `ctrlsupply`, `inclocal`, `incremote`, `tripsupply`, `vtmcbtrip`, `ocrhvop`, `ocrhvhs1`, `gfrop1`, `f501load`, `d38R`, `d38S`, `d38T`, `diffop`, `diffinstop`, `refhvop`, `reflvop`, `87Tinrush`, `d37R_1`, `d37R_2`, `d37R_3`, `d37R_4`, `d37R_5`, `d37S_1`, `d37S_2`, `d37S_3`, `d37S_4`, `d37S_5`, `d37T_1`, `d37T_2`, `d37T_3`, `d37T_4`, `d37T_5`, `olsop`, `bcufail`, `d34etherfail`) VALUES
-(1, '03-02-2025 17:44:44', 'trafo1', 'true', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', '1', '1', '2', '1', '2', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'true', 'false', 'false', 'false', 'false', 'true', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'true');
+(1, '03-02-2025 17:44:44', 'trafo1', 'true', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', '1', '1', '1', '1', '2', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'true', 'false', 'false', 'false', 'false', 'true', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'true');
 
 -- --------------------------------------------------------
 
@@ -327,21 +327,27 @@ CREATE TABLE `mx` (
 --
 
 INSERT INTO `mx` (`id`, `tanggal`, `bay`, `current_r`, `current_s`, `current_t`, `vr`, `vs`, `vt`, `vrs`, `vst`, `vtr`, `mw`, `mvar`, `vr2`, `vs2`, `vt2`, `vrs2`, `vst2`, `vtr2`, `current_r2`, `current_s2`, `current_t2`, `mw2`, `mvar2`) VALUES
-(1, '03-02-2025 15:23:47', 'pemalang1', 67.78, 65.27, 65.27, 86.95, 86.91, 86.96, 150.86, 150.4, 150.51, 16.81, 4.81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, '03-02-2025 19:15:43', 'pemalang2', 95.4, 100.42, 95.4, 87.01, 86.98, 86.99, 151.05, 150.43, 150.63, 24.8, 5.68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(3, '03-02-2025 16:00:08', 'pekalongan1', 148.12, 145.61, 145.61, 87.12, 87.16, 86.93, 151.14, 150.49, 150.91, -35.99, -13.78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(4, '03-02-2025 15:54:39', 'pekalongan2', 148.12, 145.61, 145.61, 86.88, 86.92, 86.83, 150.86, 150.28, 150.3, -35.5, -12.97, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(1, '03-02-2025 15:23:47', 'pemalang1', 67.78, 65.27, 65.27, 86.95, 86.91, 86.96, 150.86, 3, 150.51, 16.81, 4.81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(2, '03-02-2025 19:15:43', 'pemalang2', 95.4, 100.42, 95.4, 87.01, 86.98, 86.99, 151.05, 9, 150.63, 24.8, 5.68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(3, '03-02-2025 16:00:08', 'pekalongan1', 148.12, 145.61, 145.61, 87.12, 87.16, 86.93, 151.14, 6, 150.91, -35.99, -13.78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(4, '03-02-2025 15:54:39', 'pekalongan2', 148.12, 145.61, 145.61, 86.88, 86.92, 86.83, 150.86, 3, 150.3, -35.5, -12.97, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (5, '03-02-2025 17:44:44', 'trafo1', 164.81, 160.33, 156.49, 87.26, 87.24, 87.09, 151.25, 150.84, 151.01, 39.43, 14.56, 12.16, 12.14, 12.15, 21.05, 21.02, 21.08, 1164.57, 1132.22, 1081.73, 39.38, 10.72),
-(6, '03-02-2025 19:05:48', 'kopel', 87.59, 86.47, 83.68, 86.94, 86.83, 86.76, 150.65, 150.26, 150.47, -21.66, -5.46, 86.81, 86.76, 86.76, 150.54, 150.15, 150.28, 0, 0, 0, 0, 0);
+(6, '03-02-2025 19:05:48', 'kopel', 87.59, 86.47, 83.68, 86.94, 86.83, 86.76, 150.65, 1, 150.47, -21.66, -5.46, 86.81, 86.76, 86.76, 150.54, 7, 150.28, 0, 0, 0, 0, 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `boolean`
+-- Indexes for table `boolean_cpl`
 --
-ALTER TABLE `boolean`
+ALTER TABLE `boolean_cpl`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `boolean_line`
+--
+ALTER TABLE `boolean_line`
   ADD PRIMARY KEY (`id`);
 
 --
