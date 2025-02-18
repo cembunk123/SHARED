@@ -276,6 +276,16 @@
                     $('#trf1_vst2').text(datamx.vst2);
                     $('#trf1_mw2').text(datamx.mw2);
                     $('#trf1_mvar2').text(datamx.mvar2);
+					changeLineColor('#trf1_bay1', datamx.vst, "");
+                    changeLineColor('#trf1_bay2', datamx.vst, "");
+                    changeLineColor('#trf1_bay3', datamx.vst, "");
+                    changeLineColor('#trf1_bay4', datamx.vst, "");
+                    changeLineColor('#trf1_bay5', datamx.vst, "");
+                    changeLineColor('#trf1_line1', datamx.vst, "");
+                    changeLineColor('#trf1_line2', datamx.vst, "");
+                    changeLineColor('#trf1_line3', datamx.vst, "");
+                    changeLineColor('#trf1_line4', datamx.vst, "");
+                    changeLineColor('#trf1_line5', datamx.vst, "");
                 },
                 error: function (xhr, status, error) {
                     console.error('Error:', error);
@@ -292,17 +302,6 @@
                     changeBoxColorSTS('#trf1_Q22', data.Q22, "");
                     changeBoxColorSTS('#trf1_Q51', data.Q51, "");
                     changeBoxColorSTS('#trf1_Q38', data.Q38, "");
-                    changeLineColor2('#trf1_bay1', data.Q21, "");
-                    changeLineColor2('#trf1_bay2', data.Q22, "");
-                    changeLineColor2('#trf1_bay3', data.Q0, "");
-                    changeLineColor2('#trf1_bay4', data.Q0, "");
-                    changeLineColor2('#trf1_bay5', data.Q0, "");
-                    changeLineColor2('#trf1_line1', data.Q0, "");
-                    changeLineColor2('#trf1_line2', data.Q0, "");
-                    changeLineColor2('#trf1_line3', data.Q51, "");
-                    changeLineColor2('#trf1_line4', data.Q51, "");
-                    changeLineColor2('#trf1_line5', data.Q51, "");
-
                 },
                 error: function (xhr, status, error) {
                     console.error('Error:', error);

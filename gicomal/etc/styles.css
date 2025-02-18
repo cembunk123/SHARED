@@ -576,7 +576,7 @@ input:focus {
 .desktop-1 .bus-1-o1RsUs {
     border: 5px solid;
     border-color: var(--red);
-    height: 10px;
+    height: 0px;
     left: 39px;
     top: 36px;
     width: 1800px;
@@ -623,7 +623,7 @@ input:focus {
 .desktop-1 .bus-2-uAFJa0 {
     border: 5px solid;
     border-color: var(--red);
-    height: 10px;
+    height: 0px;
     left: 39px;
     top: 2px;
     width: 1800px;

@@ -32,6 +32,9 @@
 
     <script src="../etc/js/jquery-3.6.0.min.js"></script>
     <script>
+
+        var alarmSound = new Audio('../etc/elemen/alarm.mp3');
+        var alarm = false;
         // Fungsi untuk mengambil data dari get_data.php dan menampilkan di halaman
         function fetchData() {
             $.ajax({
@@ -42,41 +45,40 @@
 
                     // Mengubah warna kotak berdasarkan nilai variabel
                     //BCU
-                    changeBoxColor('#box_sf6blok', data.sf6blok, "SF6 STAGE 2 BLOCK");
-                    changeBoxColor('#box_sf6alarm', data.sf6alarm, "SF6 STAGE 1 ALARM");
-                    changeBoxColor('#box_springuncharge', data.springuncharge, "CLOSE SPRING UNCHARGE");
-                    changeBoxColor('#box_mtrmcbtrip', data.mtrmcbtrip, "MOTOR MCB TRIP");
-                    changeBoxColor('#box_q1mtrtrip', data.q1mtrtrip, "DS Q1 MOTOR MCB TRIP");
-                    changeBoxColor('#box_q1ctrltrip', data.q1ctrltrip, "DS Q1 CONTROL MCB TRIP");
-                    changeBoxColor('#box_q2mtrtrip', data.q2mtrtrip, "DS Q2 MOTOR MCB TRIP");
-                    changeBoxColor('#box_q2ctrltrip', data.q2ctrltrip, "DS Q2 CONTROL MCB TRIP");
-                    changeBoxColor('#box_mcbactrip', data.mcbactrip, "MCB AC TRIP");
-                    changeBoxColor('#box_f51fail', data.f51fail, "F51 FAIL");
-                    changeBoxColor('#box_f51alarm', data.f51alarm, "F51 ALARM");
-                    changeBoxColor('#box_tcs1', data.tcs1, "TCS 1 FAIL");
-                    changeBoxColor('#box_tcs2', data.tcs2, "TCS 2 FAIL");
-                    changeBoxColor('#box_protsuppfail', data.protsuppfail, "PROTECTION SUPPLY FAIL");
-                    changeBoxColor('#box_ctrl1suppfail', data.ctrl1suppfail, "CONTROL 1 SUPPLY FAIL");
-                    changeBoxColor('#box_ctrl2suppfail', data.ctrl2suppfail, "CONTROL 2 SUPPLY FAIL");
-                    changeBoxColor('#box_k861', data.k861, "K861 OPERATED");
-                    changeBoxColor('#box_k862', data.k862, "K862 OPERATED");
-                    changeBoxColor('#box_k863', data.k863, "K863 OPERATED");
-                    changeBoxColorSTS('#box_statQ21', data.statQ21, "");
-                    changeBoxColorSTS('#box_statQ22', data.statQ22, "");
-                    changeBoxColorSTS('#box_statQ50', data.statQ50, "");
-                    changeBoxColor('#box_bcufail', data.bcufail, "BCU FAIL");
-                    changeBoxColor('#box_etherfail', data.etherfail, "ETHERNET FAIL");
-                    changeLineColor2('#bay1', data.statQ21, data.statQ50, "");
-                    changeLineColor2('#bay2', data.statQ22, data.statQ50, "");
-                    changeLineColor2('#bay3', data.statQ21, data.statQ50, "");
-                    changeLineColor2('#bay4', data.statQ22, data.statQ50, "");
+                    changeBoxColor('#box_sf6blok', data.sf6blok, "SF6 STAGE 2 BLOCK", alarm);
+                    changeBoxColor('#box_sf6alarm', data.sf6alarm, "SF6 STAGE 1 ALARM", alarm);
+                    changeBoxColor('#box_springuncharge', data.springuncharge, "CLOSE SPRING UNCHARGE", alarm);
+                    changeBoxColor('#box_mtrmcbtrip', data.mtrmcbtrip, "MOTOR MCB TRIP", alarm);
+                    changeBoxColor('#box_q1mtrtrip', data.q1mtrtrip, "DS Q1 MOTOR MCB TRIP", alarm);
+                    changeBoxColor('#box_q1ctrltrip', data.q1ctrltrip, "DS Q1 CONTROL MCB TRIP", alarm);
+                    changeBoxColor('#box_q2mtrtrip', data.q2mtrtrip, "DS Q2 MOTOR MCB TRIP", alarm);
+                    changeBoxColor('#box_q2ctrltrip', data.q2ctrltrip, "DS Q2 CONTROL MCB TRIP", alarm);
+                    changeBoxColor('#box_mcbactrip', data.mcbactrip, "MCB AC TRIP", alarm);
+                    changeBoxColor('#box_f51fail', data.f51fail, "F51 FAIL", alarm);
+                    changeBoxColor('#box_f51alarm', data.f51alarm, "F51 ALARM", alarm);
+                    changeBoxColor('#box_tcs1', data.tcs1, "TCS 1 FAIL", alarm);
+                    changeBoxColor('#box_tcs2', data.tcs2, "TCS 2 FAIL", alarm);
+                    changeBoxColor('#box_protsuppfail', data.protsuppfail, "PROTECTION SUPPLY FAIL", alarm);
+                    changeBoxColor('#box_ctrl1suppfail', data.ctrl1suppfail, "CONTROL 1 SUPPLY FAIL", alarm);
+                    changeBoxColor('#box_ctrl2suppfail', data.ctrl2suppfail, "CONTROL 2 SUPPLY FAIL", alarm);
+                    changeBoxColor('#box_k861', data.k861, "K861 OPERATED", alarm);
+                    changeBoxColor('#box_k862', data.k862, "K862 OPERATED", alarm);
+                    changeBoxColor('#box_k863', data.k863, "K863 OPERATED", alarm);
+                    changeBoxColorSTS('#box_statQ21', data.statQ21, "", alarm);
+                    changeBoxColorSTS('#box_statQ22', data.statQ22, "", alarm);
+                    changeBoxColorSTS('#box_statQ50', data.statQ50, "", alarm);
+                    changeBoxColor('#box_bcufail', data.bcufail, "BCU FAIL", alarm);
+                    changeLineColor2('#bay1', data.statQ21, data.statQ50, "", alarm);
+                    changeLineColor2('#bay2', data.statQ22, data.statQ50, "", alarm);
+                    changeLineColor2('#bay3', data.statQ21, data.statQ50, "", alarm);
+                    changeLineColor2('#bay4', data.statQ22, data.statQ50, "", alarm);
 
 
                     //OCR
-                    changeBoxColor('#box_ocrop', data.ocrop, "OCR OPERATED");
-                    changeBoxColor('#box_gfrop', data.gfrop, "GFR OPERATED");
-                    changeBoxColor('#box_bcufail', data.bcufail, "BCU FAIL");
-                    changeBoxColor('#box_etherfail', data.etherfail, "ETHERNET FAIL");
+                    changeBoxColor('#box_ocrop', data.ocrop, "OCR OPERATED", alarm);
+                    changeBoxColor('#box_gfrop', data.gfrop, "GFR OPERATED", alarm);
+                    changeBoxColor('#box_bcufail', data.bcufail, "BCU FAIL", alarm);
+                    IchangeBoxColor('#box_etherfail', data.etherfail, "ETHERNET FAIL", alarm);
                 },
                 error: function (xhr, status, error) {
                     console.error('Error:', error);
@@ -153,10 +155,26 @@
         }
 
         // Fungsi untuk mengubah warna kotak berdasarkan nilai
-        function changeBoxColor(boxId, value, nama) {
+        function changeBoxColor(boxId, value, nama, alarm) {
             const color = value === 'true' ? 'red' : '#0cff00;';
             $(boxId).css('background-color', '').css('background-color', color);
             $(boxId).text(nama); // Menampilkan nilai di dalam kotak
+
+            if (color === "red" && alarm === false) {
+                alarmSound.play();
+                alarm = true;
+            }
+        }
+
+        function IchangeBoxColor(boxId, value, nama, alarm) {
+            const color = value === 'true' ? '#0cff00;' : 'red';
+            $(boxId).css('background-color', '').css('background-color', color);
+            $(boxId).text(nama); // Menampilkan nilai di dalam kotak
+
+            if (color === "red" && alarm === false) {
+                alarmSound.play();
+                alarm = true;
+            }
         }
 
         // Fungsi untuk mengubah warna kotak status

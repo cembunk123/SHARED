@@ -118,6 +118,7 @@ if ($result->num_rows > 0) {
     $ols = $row[array_keys($row)[94]];
     $bcufail = $row[array_keys($row)[95]];
     $d34etherfail = $row[array_keys($row)[96]];
+	$tap = $row[array_keys($row)[97]];
 }
 
 // Mengirim data sebagai JSON
@@ -216,6 +217,7 @@ $data = [
     'ols' => $ols,
     'bcufail' => $bcufail,
     'd34etherfail' => $d34etherfail,
+	'tap' => $tap,
 ];
 
 // Mengembalikan data dalam format JSON

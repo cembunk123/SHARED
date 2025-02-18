@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1920, maximum-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="../etc/elemen/Logo_PLN.png">
     <meta name="og:type" content="website">
     <meta name="twitter:card" content="photo">
     <script src="../etc/js/timeline.js"></script>
@@ -32,6 +32,9 @@
 
     <script src="../etc/js/jquery-3.6.0.min.js"></script>
     <script>
+
+        var alarmSound = new Audio('../etc/elemen/alarm.mp3');
+        var alarm = false;
         // Fungsi untuk mengambil data dari get_datamx.php dan menampilkan di halaman
         function fetchData() {
             $.ajax({
@@ -62,6 +65,16 @@
                     $('#vtr2').text(datamx.vtr2);
                     $('#mw2').text(datamx.mw2);
                     $('#mvar2').text(datamx.mvar2);
+                    changeLineColor('#line1', datamx.vst, "");
+                    changeLineColor('#line2', datamx.vst, "");
+                    changeLineColor('#line3', datamx.vst, "");
+                    changeLineColor('#line4', datamx.vst, "");
+                    changeLineColor('#line5', datamx.vst, "");
+                    changeLineColor('#bay1', datamx.vst, "");
+                    changeLineColor('#bay2', datamx.vst, "");
+                    changeLineColor('#bay3', datamx.vst, "");
+                    changeLineColor('#bay4', datamx.vst, "");
+                    changeLineColor('#bay5', datamx.vst, "");
                 },
                 error: function (xhr, status, error) {
                     console.error('Error:', error);
@@ -92,104 +105,99 @@
 
                     // Mengubah warna kotak berdasarkan nilai variabel
                     //BCU
-                    changeBoxColor('#box_d40etherfail', data.d40etherfail, "ETHERNET FAIL PROT PANEL");
-                    changeBoxColor('#box_f87tfail', data.f87tfail, "F87T FAIL");
-                    changeBoxColor('#box_f501fail', data.f501fail, "F501 FAIL");
-                    changeBoxColor('#box_f502fail', data.f502fail, "F502 FAIL");
-                    changeBoxColor('#box_sf6block', data.sf6block, "SF6 STAGE 2 BLOCK");
-                    changeBoxColor('#box_sf6alarm', data.sf6alarm, "SF6 STAGE 1 ALARM");
-                    changeBoxColor('#box_springuncharge', data.springuncharge, "CLOSE SPRING UNCHARGE");
-                    changeBoxColor('#box_cbmtrmcb', data.cbmtrmcb, "CB Q0 MOTOR MCB TRIP");
-                    changeBoxColor('#box_q21mtrmcb', data.q21mtrmcb, "DS Q1 MOTOR MCB TRIP");
-                    changeBoxColor('#box_q21ctrlmcb', data.q21ctrlmcb, "DS Q1 CONTROL MCB TRIP");
-                    changeBoxColor('#box_q2mtrmcb', data.q2mtrmcb, "DS Q2 MOTOR MCB TRIP");
-                    changeBoxColor('#box_q2ctrlmcb', data.q2ctrlmcb, "DS Q2 CONTROL MCB TRIP");
-                    changeBoxColor('#box_mcbac', data.mcbac, "MCB AC TRIP");
-                    changeBoxColor('#box_mainoilalm', data.mainoilalm, "MAIN TANK OIL HIGH LEVEL ALARM");
-                    changeBoxColor('#box_oltcoilalm', data.oltcoilalm, "OLTC OIL HIGH LEVEL ALARM");
-                    changeBoxColor('#box_bucholzalm', data.bucholzalm, "BUCHOLZ ALARM");
-                    changeBoxColor('#box_oilalm', data.oilalm, "OIL TEMP ALARM");
-                    changeBoxColor('#box_mainbreahtalm', data.mainbreahtalm, "MAIN TANK BREATH CONSV.ALARM");
-                    changeBoxColor('#box_oltcbreathalm', data.oltcbreathalm, "OLTC BREATH CONSV.ALARM");
-                    changeBoxColor('#box_lvwindalm', data.lvwindalm, "LV WINDING TEMP.ALARM");
-                    changeBoxColor('#box_hvwindalm', data.hvwindalm, "HV WINDING TEMPT.ALARM");
-                    changeBoxColor('#box_fanfail', data.fanfail, "COOLING FAN FAIL");
-                    changeBoxColor('#box_oltcmotoralm', data.oltcmotoralm, "OLTC MOTOR DRIVE FAIL");
-                    changeBoxColor('#box_tcs1', data.tcs1, "TCS 1 FAIL");
-                    changeBoxColor('#box_tcs2', data.tcs2, "TCS 2 FAIL");
-                    changeBoxColor('#box_k861op', data.k861op, "K861 OPERATE");
-                    changeBoxColor('#box_k862op', data.k862op, "K862 OPERATE");
-                    changeBoxColor('#box_k863op', data.k863op, "K863 OPERATE");
-                    changeBoxColor('#box_mcbheater', data.mcbheater, "MK MCB HEATER TRIP");
-                    changeBoxColor('#box_bucholztrip', data.bucholztrip, "BUCHLOZ TRIP");
-                    changeBoxColor('#box_oiltrip', data.oiltrip, "OIL TEMP.TRIP");
-                    changeBoxColor('#box_hvwindtrip', data.hvwindtrip, "HV WINDING TEMPT.TRIP");
-                    changeBoxColor('#box_protpowerfail', data.protpowerfail, "PROTECTION POWER FAIL");
-                    changeBoxColor('#box_ctrlporwerfail', data.ctrlporwerfail, "CONTROL POWER FAIL");
-                    changeBoxColor('#box_macauxddcfail', data.macauxddcfail, "MCB AUX DDC SUPPLY FAIL");
-                    changeBoxColor('#box_lvwindtrip', data.lvwindtrip, "LV WINDING TEMPT.TRIP");
-                    changeBoxColor('#box_presstrip', data.presstrip, "PRESSURE RELIEFE TRIP");
-                    changeBoxColor('#box_oltcpresstrip', data.oltcpresstrip, "OLTC PRESSURE RELIEFE TRIP");
-                    changeBoxColor('#box_jansentrip', data.jansentrip, "JANSEN RELAY TRIP");
-                    changeBoxColor('#box_mainoillow', data.mainoillow, "MAIN TANK OIL LEVEL LOW");
-                    changeBoxColor('#box_oltcoillow', data.oltcoillow, "OLTC OIL LEVEL LOW");
-                    changeBoxColor('#box_mtrmcbtrip', data.mtrmcbtrip, "MK MOTOR MCB TRIP");
-                    changeBoxColorSTS('#box_Q0', data.Q0, "");
-                    changeBoxColorSTS('#box_Q21', data.Q21, "");
-                    changeBoxColorSTS('#box_Q22', data.Q22, "");
-                    changeBoxColorSTS('#box_Q51', data.Q51, "");
-                    changeBoxColorSTS('#box_Q38', data.Q38, "");
-                    changeBoxColor('#box_ols', data.ols, "OLS Operate");
-                    changeBoxColor('#box_bcufail', data.bcufail, "BCU FAIL");
-                    changeBoxColor('#box_d34etherfail', data.d34etherfail, "ETHERNET FAIL CONTROL PANEL");
-                    changeLineColor2('#line1', data.Q0, "");
-                    changeLineColor2('#line2', data.Q0, "");
-                    changeLineColor2('#line3', data.Q51, "");
-                    changeLineColor2('#line4', data.Q51, "");
-                    changeLineColor2('#line5', data.Q51, "");
-                    changeLineColor2('#bay1', data.Q21, "");
-                    changeLineColor2('#bay2', data.Q22, "");
-                    changeLineColor2('#bay3', data.Q0, "");
-                    changeLineColor2('#bay4', data.Q0, "");
-                    changeLineColor2('#bay5', data.Q0, "");
+                    IchangeBoxColor('#box_d40etherfail', data.d40etherfail, "ETHERNET FAIL PROT PANEL", alarm);
+                    changeBoxColor('#box_f87tfail', data.f87tfail, "F87T FAIL", alarm);
+                    changeBoxColor('#box_f501fail', data.f501fail, "F501 FAIL", alarm);
+                    changeBoxColor('#box_f502fail', data.f502fail, "F502 FAIL", alarm);
+                    changeBoxColor('#box_sf6block', data.sf6block, "SF6 STAGE 2 BLOCK", alarm);
+                    changeBoxColor('#box_sf6alarm', data.sf6alarm, "SF6 STAGE 1 ALARM", alarm);
+                    changeBoxColor('#box_springuncharge', data.springuncharge, "CLOSE SPRING UNCHARGE", alarm);
+                    changeBoxColor('#box_cbmtrmcb', data.cbmtrmcb, "CB Q0 MOTOR MCB TRIP", alarm);
+                    changeBoxColor('#box_q21mtrmcb', data.q21mtrmcb, "DS Q1 MOTOR MCB TRIP", alarm);
+                    changeBoxColor('#box_q21ctrlmcb', data.q21ctrlmcb, "DS Q1 CONTROL MCB TRIP", alarm);
+                    changeBoxColor('#box_q2mtrmcb', data.q2mtrmcb, "DS Q2 MOTOR MCB TRIP", alarm);
+                    changeBoxColor('#box_q2ctrlmcb', data.q2ctrlmcb, "DS Q2 CONTROL MCB TRIP", alarm);
+                    changeBoxColor('#box_mcbac', data.mcbac, "MCB AC TRIP", alarm);
+                    changeBoxColor('#box_mainoilalm', data.mainoilalm, "MAIN TANK OIL HIGH LEVEL ALARM", alarm);
+                    changeBoxColor('#box_oltcoilalm', data.oltcoilalm, "OLTC OIL HIGH LEVEL ALARM", alarm);
+                    changeBoxColor('#box_bucholzalm', data.bucholzalm, "BUCHOLZ ALARM", alarm);
+                    changeBoxColor('#box_oilalm', data.oilalm, "OIL TEMP ALARM", alarm);
+                    changeBoxColor('#box_mainbreahtalm', data.mainbreahtalm, "MAIN TANK BREATH CONSV.ALARM", alarm);
+                    changeBoxColor('#box_oltcbreathalm', data.oltcbreathalm, "OLTC BREATH CONSV.ALARM", alarm);
+                    changeBoxColor('#box_lvwindalm', data.lvwindalm, "LV WINDING TEMP.ALARM", alarm);
+                    changeBoxColor('#box_hvwindalm', data.hvwindalm, "HV WINDING TEMPT.ALARM", alarm);
+                    changeBoxColor('#box_fanfail', data.fanfail, "COOLING FAN FAIL", alarm);
+                    changeBoxColor('#box_oltcmotoralm', data.oltcmotoralm, "OLTC MOTOR DRIVE FAIL", alarm);
+                    changeBoxColor('#box_tcs1', data.tcs1, "TCS 1 FAIL", alarm);
+                    changeBoxColor('#box_tcs2', data.tcs2, "TCS 2 FAIL", alarm);
+                    changeBoxColor('#box_k861op', data.k861op, "K861 OPERATE", alarm);
+                    changeBoxColor('#box_k862op', data.k862op, "K862 OPERATE", alarm);
+                    changeBoxColor('#box_k863op', data.k863op, "K863 OPERATE", alarm);
+                    changeBoxColor('#box_mcbheater', data.mcbheater, "MK MCB HEATER TRIP", alarm);
+                    changeBoxColor('#box_bucholztrip', data.bucholztrip, "BUCHLOZ TRIP", alarm);
+                    changeBoxColor('#box_oiltrip', data.oiltrip, "OIL TEMP.TRIP", alarm);
+                    changeBoxColor('#box_hvwindtrip', data.hvwindtrip, "HV WINDING TEMPT.TRIP", alarm);
+                    changeBoxColor('#box_protpowerfail', data.protpowerfail, "PROTECTION POWER FAIL", alarm);
+                    changeBoxColor('#box_ctrlporwerfail', data.ctrlporwerfail, "CONTROL POWER FAIL", alarm);
+                    changeBoxColor('#box_macauxddcfail', data.macauxddcfail, "MCB AUX DDC SUPPLY FAIL", alarm);
+                    changeBoxColor('#box_lvwindtrip', data.lvwindtrip, "LV WINDING TEMPT.TRIP", alarm);
+                    changeBoxColor('#box_presstrip', data.presstrip, "PRESSURE RELIEFE TRIP", alarm);
+                    changeBoxColor('#box_oltcpresstrip', data.oltcpresstrip, "OLTC PRESSURE RELIEFE TRIP", alarm);
+                    changeBoxColor('#box_jansentrip', data.jansentrip, "JANSEN RELAY TRIP", alarm);
+                    changeBoxColor('#box_mainoillow', data.mainoillow, "MAIN TANK OIL LEVEL LOW", alarm);
+                    changeBoxColor('#box_oltcoillow', data.oltcoillow, "OLTC OIL LEVEL LOW", alarm);
+                    changeBoxColor('#box_mtrmcbtrip', data.mtrmcbtrip, "MK MOTOR MCB TRIP", alarm);
+                    changeBoxColorSTS('#box_Q0', data.Q0, "", alarm);
+                    changeBoxColorSTS('#box_Q21', data.Q21, "", alarm);
+                    changeBoxColorSTS('#box_Q22', data.Q22, "", alarm);
+                    changeBoxColorSTS('#box_Q51', data.Q51, "", alarm);
+                    changeBoxColorSTS('#box_Q38', data.Q38, "", alarm);
+                    changeBoxColor('#box_ols', data.ols, "OLS Operate", alarm);
+                    changeBoxColor('#box_bcufail', data.bcufail, "BCU FAIL", alarm);
+                    IchangeBoxColor('#box_d34etherfail', data.d34etherfail, "ETHERNET FAIL CONTROL PANEL", alarm);
+
 
                     //OCR LV
-                    changeBoxColor('#box_ocrlvop', data.ocrlvop, "OCR LV Operated");
-                    changeBoxColor('#box_ocrlvhs1', data.ocrlvhs1, "OCR LV High SET 1 Operated");
-                    changeBoxColor('#box_ocrlvhs2', data.ocrlvhs2, "OCR LV High SET 2 Operated");
-                    changeBoxColor('#box_gfrop', data.gfrop, "GFR LV Operated");
-                    changeBoxColor('#box_gfrhs1', data.gfrhs1, "GFR LV High SET 1 Operated");
-                    changeBoxColor('#box_gfrhs2', data.gfrhs2, "GFR LV High SET 2 Operated");
-                    changeBoxColor('#box_d39R', data.d39R, "Trafo 1 PH R");
-                    changeBoxColor('#box_d39S', data.d39S, "Trafo 1 PH S");
-                    changeBoxColor('#box_d39T', data.d39T, "Trafo 1 PH T");
-                    changeBoxColor('#box_inctest', data.inctest, "20kV CB Incoming In Test");
-                    changeBoxColor('#box_incservice', data.incservice, "20kV CB Incoming In Service");
-                    changeBoxColor('#box_mtrsupply', data.mtrsupply, "Motor Supply Fail");
-                    changeBoxColor('#box_ctrlsupply', data.ctrlsupply, "Control Supply Fail");
-                    changeBoxColor('#box_inclocal', data.inclocal, "20kV Incoming Switch Local");
-                    changeBoxColor('#box_incremote', data.incremote, "20kV Incoming Switch Remote");
-                    changeBoxColor('#box_tripsupply', data.tripsupply, "Tripping Supply Fail");
-                    changeBoxColor('#box_vtmcbtrip', data.vtmcbtrip, "VT MCB Fault Trip");
+                    changeBoxColor('#box_ocrlvop', data.ocrlvop, "OCR LV Operated", alarm);
+                    changeBoxColor('#box_ocrlvhs1', data.ocrlvhs1, "OCR LV High SET 1 Operated", alarm);
+                    changeBoxColor('#box_ocrlvhs2', data.ocrlvhs2, "OCR LV High SET 2 Operated", alarm);
+                    changeBoxColor('#box_gfrop', data.gfrop, "GFR LV Operated", alarm);
+                    changeBoxColor('#box_gfrhs1', data.gfrhs1, "GFR LV High SET 1 Operated", alarm);
+                    changeBoxColor('#box_gfrhs2', data.gfrhs2, "GFR LV High SET 2 Operated", alarm);
+                    changeBoxColor('#box_d39R', data.d39R, "Trafo 1 PH R", alarm);
+                    changeBoxColor('#box_d39S', data.d39S, "Trafo 1 PH S", alarm);
+                    changeBoxColor('#box_d39T', data.d39T, "Trafo 1 PH T", alarm);
+                    IchangeBoxColor('#box_inctest', data.inctest, "20kV CB Incoming In Test", alarm);
+                    changeBoxColor('#box_incservice', data.incservice, "20kV CB Incoming In Service", alarm);
+                    changeBoxColor('#box_mtrsupply', data.mtrsupply, "Motor Supply Fail", alarm);
+                    changeBoxColor('#box_ctrlsupply', data.ctrlsupply, "Control Supply Fail", alarm);
+                    changeBoxColor('#box_inclocal', data.inclocal, "20kV Incoming Switch Local", alarm);
+                    changeBoxColor('#box_incremote', data.incremote, "20kV Incoming Switch Remote", alarm);
+                    changeBoxColor('#box_tripsupply', data.tripsupply, "Tripping Supply Fail", alarm);
+                    changeBoxColor('#box_vtmcbtrip', data.vtmcbtrip, "VT MCB Fault Trip", alarm);
 
                     //OCR HV
-                    changeBoxColor('#box_ocrhvop', data.ocrhvop, "OCR HV Operated");
-                    changeBoxColor('#box_ocrhvhs1', data.ocrhvhs1, "OCR HV High SET 1 Operated");
-                    changeBoxColor('#box_gfrop1', data.gfrop1, "GFR Operated");
-                    changeBoxColor('#box_f501load', data.f501load, "F501 100 % Load");
-                    changeBoxColor('#box_d38R', data.d38R, "Trafo 1 PH R");
-                    changeBoxColor('#box_d38S', data.d38S, "Trafo 1 PH S");
-                    changeBoxColor('#box_d38T', data.d38T, "Trafo 1 PH T");
+                    changeBoxColor('#box_ocrhvop', data.ocrhvop, "OCR HV Operated", alarm);
+                    changeBoxColor('#box_ocrhvhs1', data.ocrhvhs1, "OCR HV High SET 1 Operated", alarm);
+                    changeBoxColor('#box_gfrop1', data.gfrop1, "GFR Operated", alarm);
+                    changeBoxColor('#box_f501load', data.f501load, "F501 100 % Load", alarm);
+                    changeBoxColor('#box_d38R', data.d38R, "Trafo 1 PH R", alarm);
+                    changeBoxColor('#box_d38S', data.d38S, "Trafo 1 PH S", alarm);
+                    changeBoxColor('#box_d38T', data.d38T, "Trafo 1 PH T", alarm);
 
                     //DIFF
-                    changeBoxColor('#box_diffop', data.diffop, "Differential Operated");
-                    changeBoxColor('#box_diffinstop', data.diffinstop, "Differetial Inst Operated");
-                    changeBoxColor('#box_refhvop', data.refhvop, "REV HV Operated");
-                    changeBoxColor('#box_reflvop', data.reflvop, "REV LV Operated");
-                    changeBoxColor('#box_inrush', data.inrush, "87T Inrush");
-                    changeBoxColor5('#box_d37R', data.d37R_1, data.d37R_2, data.d37R_3, data.d37R_4, data.d37R_5, "Trafo 1 PH R");
-                    changeBoxColor5('#box_d37S', data.d37S_1, data.d37S_2, data.d37S_3, data.d37S_4, data.d37S_5, "Trafo 1 PH S");
-                    changeBoxColor5('#box_d37T', data.d37T_1, data.d37T_2, data.d37T_3, data.d37T_4, data.d37T_5, "Trafo 1 PH T");
+                    changeBoxColor('#box_diffop', data.diffop, "Differential Operated", alarm);
+                    changeBoxColor('#box_diffinstop', data.diffinstop, "Differetial Inst Operated", alarm);
+                    changeBoxColor('#box_refhvop', data.refhvop, "REV HV Operated", alarm);
+                    changeBoxColor('#box_reflvop', data.reflvop, "REV LV Operated", alarm);
+                    changeBoxColor('#box_inrush', data.inrush, "87T Inrush", alarm);
+                    changeBoxColor5('#box_d37R', data.d37R_1, data.d37R_2, data.d37R_3, data.d37R_4, data.d37R_5, "Trafo 1 PH R", alarm);
+                    changeBoxColor5('#box_d37S', data.d37S_1, data.d37S_2, data.d37S_3, data.d37S_4, data.d37S_5, "Trafo 1 PH S", alarm);
+                    changeBoxColor5('#box_d37T', data.d37T_1, data.d37T_2, data.d37T_3, data.d37T_4, data.d37T_5, "Trafo 1 PH T", alarm);
+
+                    //TAP
+                    $('#tap').text(data.tap);
+
                 },
                 error: function (xhr, status, error) {
                     console.error('Error:', error);
@@ -220,34 +228,66 @@
             $(boxId).text(nama); // Menampilkan nilai di dalam kotak
         }
         // Fungsi untuk mengubah warna kotak berdasarkan nilai
-        function changeBoxColor(boxId, value, nama) {
+        function changeBoxColor(boxId, value, nama, alarm) {
             const color = value === 'true' ? 'red' : '#0cff00;';
             $(boxId).css('background-color', '').css('background-color', color);
             $(boxId).text(nama); // Menampilkan nilai di dalam kotak
+
+            if (color === "red" && alarm === false) {
+                alarmSound.play();
+                alarm = true;
+            }
         }
 
+        function IchangeBoxColor(boxId, value, nama, alarm) {
+            const color = value === 'true' ? '#0cff00;' : 'red';
+            $(boxId).css('background-color', '').css('background-color', color);
+            $(boxId).text(nama); // Menampilkan nilai di dalam kotak
+
+            if (color === "red" && alarm === false) {
+                alarmSound.play();
+                alarm = true;
+            }
+        }
+
+
         // Fungsi untuk mengubah warna kotak berdasarkan 4 nilai
-        function changeBoxColor4(boxId, value1, value2, value3, value4, nama) {
+        function changeBoxColor4(boxId, value1, value2, value3, value4, nama, alarm) {
             const isRed = [value1, value2, value3, value4].includes('true');
             const color = isRed ? 'red' : '#0cff00';
             $(boxId).css('background-color', '').css('background-color', color);
             $(boxId).text(nama); // Menampilkan nilai di dalam kotak
+
+            if (color === "red" && alarm === false) {
+                alarmSound.play();
+                alarm = true;
+            }
         }
 
         // Fungsi untuk mengubah warna kotak berdasarkan 5 nilai
-        function changeBoxColor5(boxId, value1, value2, value3, value4, value5, nama) {
+        function changeBoxColor5(boxId, value1, value2, value3, value4, value5, nama, alarm) {
             const isRed = [value1, value2, value3, value4, value5].includes('true');
             const color = isRed ? 'red' : '#0cff00';
             $(boxId).css('background-color', '').css('background-color', color);
             $(boxId).text(nama); // Menampilkan nilai di dalam kotak
+
+            if (color === "red" && alarm === false) {
+                alarmSound.play();
+                alarm = true;
+            }
         }
 
         // Fungsi untuk mengubah warna kotak berdasarkan 6 nilai
-        function changeBoxColor6(boxId, value1, value2, value3, value4, value5, value6, nama) {
+        function changeBoxColor6(boxId, value1, value2, value3, value4, value5, value6, nama, alarm) {
             const isRed = [value1, value2, value3, value4, value5, value6].includes('true');
             const color = isRed ? 'red' : '#0cff00';
             $(boxId).css('background-color', '').css('background-color', color);
             $(boxId).text(nama); // Menampilkan nilai di dalam kotak
+
+            if (color === "red" && alarm === false) {
+                alarmSound.play();
+                alarm = true;
+            }
         }
 
         // Fungsi untuk mengubah warna kotak status
@@ -831,7 +871,7 @@
                 </div>
                 <div class="poss-1Tf1Pe" data-id="50:161">
                     <div class="posisi-jNgacy timesnewroman-regular-normal-white-32px" data-id="50:163">TAP :</div>
-                    <div class="a1-jNgacy a1 timesnewroman-regular-normal-white-32px" data-id="50:165">A1</div>
+                    <div class="a1-jNgacy a1 timesnewroman-regular-normal-white-32px" id="tap">-</div>
                 </div>
             </div>
             <header class="header-Ys8k0x" data-id="12:86">
