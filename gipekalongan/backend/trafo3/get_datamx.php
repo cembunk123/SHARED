@@ -24,8 +24,6 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 
     // Menyimpan nilai kolom pertama ke dalam variabel
-    $tanggal = $row[array_keys($row)[1]];
-    $bay = $row[array_keys($row)[2]];
     $ir = $row[array_keys($row)[3]];
     $is = $row[array_keys($row)[4]];
     $it = $row[array_keys($row)[5]];
@@ -41,7 +39,6 @@ if ($result->num_rows > 0) {
 
 // Mengirim data sebagai JSON
 $datamx = [
-    'bay' => $bay,
     'ir' => $ir,
     'is' => $is,
     'it' => $it,
@@ -53,7 +50,6 @@ $datamx = [
     'vtr' => $vtr,
     'mw' => $mw,
     'mvar' => $mvar,
-    'tanggal' => $tanggal
 ];
 
 // Mengembalikan data dalam format JSON
